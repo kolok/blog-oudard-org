@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -x 
+
 date=`date +%Y-%m-%d`
 
 echo "## Get DB dump from remote server"
@@ -15,9 +17,9 @@ ssh nicolas@oudard.org "rm blog.oudard.org-$date.tar.gz"
 #
 #
 # After run ./backup.sh 
-tar xfz blog.oudard.org-$date.tar.gz
+tar xfz "blog.oudard.org-$date.tar.gz"
 mv blog-oudard-org-wp/wp-config.php .
-rm blog-oudard-org-wp
+rm -rf blog-oudard-org-wp
 mv production/wordpress blog-oudard-org-wp
 mv wp-config.php blog-oudard-org-wp
 rm -rf production "blog.oudard.org-$date.tar.gz"
