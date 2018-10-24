@@ -6,8 +6,6 @@ services:
         restart: always
         ports:
             - 8080:80
-        environment:
-            WORDPRESS_DB_PASSWORD: Nicolas://Wordpress
         volumes:
             - ./blog-oudard-org-wp:/var/www/html
         links:
@@ -16,7 +14,5 @@ services:
     mysql:
         image: mysql:5.7
         restart: always
-        environment:
-            MYSQL_ROOT_PASSWORD: Nicolas://Wordpress
         volumes:
             - ./blog-oudard-org-db:/var/lib/mysql
